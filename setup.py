@@ -7,14 +7,14 @@ with open("requirements.txt", "r", encoding="utf-8") as f:
     requirements = f.read().split("\n")
 
 setuptools.setup(
-    name="deepface",
+    name="deepface-custom",
     version="0.0.79",
-    author="Sefik Ilkin Serengil",
-    author_email="serengil@gmail.com",
+    author="Sefik Ilkin Serengil, Kamoliddin Soliev",
+    author_email="kamolsf8@gmail.com",
     description="A Lightweight Face Recognition and Facial Attribute Analysis Framework (Age, Gender, Emotion, Race) for Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/serengil/deepface",
+    url="https://github.com/kamoliddins/deepface",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

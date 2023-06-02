@@ -19,6 +19,7 @@ def detect_face(face_detector, img, align=True):
     obj = RetinaFace.detect_faces(img, model=face_detector, threshold=0.9)
 
     if isinstance(obj, dict):
+        max_area = 0
         for face_idx in obj.keys():
             identity = obj[face_idx]
             facial_area = identity["facial_area"]
@@ -27,6 +28,10 @@ def detect_face(face_detector, img, align=True):
             h = facial_area[3] - y
             x = facial_area[0]
             w = facial_area[2] - x
+            if w * h > max_area:
+                max_area = w * h
+            else:
+                continue
             img_region = [x, y, w, h]
             confidence = identity["score"]
 
@@ -45,6 +50,8 @@ def detect_face(face_detector, img, align=True):
                     detected_face, right_eye, left_eye, nose
                 )
 
-            resp.append((detected_face, img_region, confidence))
-
+            if len(resp) == 0:
+                resp.append((detected_face, img_region, confidence))
+            else:
+                resp[0] = (detected_face, img_region, confidence)
     return resp
