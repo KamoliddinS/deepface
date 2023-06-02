@@ -8,7 +8,7 @@ with open("requirements.txt", "r", encoding="utf-8") as f:
 
 setuptools.setup(
     name="deepface-custom",
-    version="0.0.79",
+    version="0.0.80",
     author="Sefik Ilkin Serengil, Kamoliddin Soliev",
     author_email="kamolsf8@gmail.com",
     description="A Lightweight Face Recognition and Facial Attribute Analysis Framework (Age, Gender, Emotion, Race) for Python",
